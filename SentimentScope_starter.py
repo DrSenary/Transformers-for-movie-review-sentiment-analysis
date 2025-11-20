@@ -1,21 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
+###################################
 
 # # SentimentScope: Sentiment Analysis using Transformers!
-# ## Introduction <a name = "introduction"></a>
-# 
-# In this notebook, you will train a transformer model from scratch to perform sentiment analysis on the IMDB dataset. You are a Machine Learning Engineer at Cinescope, a growing entertainment company working to enhance its recommendation system. Your task is to fine-tune a transformer-based model for sentiment analysis using the IMDB dataset. By classifying reviews as positive or negative, you will help the company better understand user sentiment and deliver more personalized experiences.
-# 
-# By completing this project, you will demonstrate your competency in the following learning objectives:
-# 
-# - Load, explore, and prepare a text dataset for training a transformer model using PyTorch.
-# - Customize the architecture of the transformer model for a classification task.
-# - Train and test a transformer model on the IMDB dataset.
-# 
-# Now that you have an overview of what you will achieve in this project, let’s move on to the project outline.
-# 
-# ---
-# 
 # ### Project Outline
 # 
 # This notebook is organized into the following sections:
@@ -28,37 +13,7 @@
 # 5. [Implement Accuracy Calculation Method](#implement-accuracy-calculation-method): Create a function to compute accuracy for monitoring performance.
 # 6. [Train the Model](#train-the-model): Complete and execute the training loop for binary classification.
 # 7. [Test the Model](#test-the-model): Evaluate the model on the test dataset and ensure it achieves over 75% accuracy.
-# 8. [Conclusion](#conclusion): Summarize the project results and key takeaways.
-# 
-# Click on the section titles above to navigate directly to the corresponding part of the notebook!
-# 
-# ---
-# 
-# Now that we've outlined the structure and objectives of this project, let's delve into the core concept: sentiment analysis.
-# 
-# ### Understanding Sentiment Analysis
-# 
-# Sentiment analysis is a natural language processing (NLP) technique used to determine the sentiment expressed in a piece of text. This can range from identifying the polarity (positive, negative, or neutral) of a review to analyzing emotions and opinions.
-# 
-# In this project, sentiment analysis is explicitly framed as a **binary classification task**, where the goal is to determine whether a given movie review is *positive* or *negative*. This task is central to many real-world applications, including customer feedback analysis, social media monitoring, and recommendation systems. By developing a transformer-based model, you will classify IMDB movie reviews as positive or negative to tackle the challenge faced by your entertainment company CineScope by enhancing its recommendation system, enabling more accurate and personalized suggestions. 
-# 
-# Reviews labeled as positive will be marked as 1 in the dataset, while negative reviews will be labeled as 0.
-# 
-# For example, consider the following movie review:
-# 
-# > "The movie was a rollercoaster of emotions, and I loved every moment of it!"
-# 
-# This review is clearly positive as it expresses enjoyment and satisfaction with the movie, hence it will be labelled as *positive* or 1 in the dataset. In contrast:
-# 
-# > "The plot was predictable, and the acting was subpar. A waste of time."
-# 
-# This review conveys a negative sentiment, criticizing both the plot and acting, hence it will be labelled as *negative* or 0 in the dataset.
-# 
-# While transformers are often used for generation tasks, they can also be adapted for classification tasks with some modifications to their architecture. You might already be familiar with the tweaks that we will implement in this project.
-# 
-# 
-# ---
-# 
+
 # ### Data Description
 # 
 # The dataset used in this project is the [IMDB dataset](https://ai.stanford.edu/~amaas/data/sentiment/), provided in the `aclIMDB_v1.tar.gz` file. Upon extracting the file, you will find the following folder structure:
@@ -345,9 +300,6 @@ print(tokenized_samples)
 #  - `padding=True`: Pads shorter sequences to match max_length.
 #  - `max_length=128`: Specifies the maximum length of the sequences.
 #  - `return_tensors="pt"`: Returns PyTorch tensors as the output format.
-#  
-# For more details about truncation and padding, refer to the [Hugging Face Padding and Truncation Documentation](https://huggingface.co/docs/transformers/pad_truncation). This step ensures that the tokenizer works as expected and provides insight into its behavior. Next, we will use the tokenizer within the class definition to process the dataset.
-# 
 # ---
 # 
 
@@ -374,9 +326,6 @@ print(tokenized_samples)
 #    - Retrieves a single data point by index.
 #    - Preprocesses the text using the tokenizer to create tokenized input IDs.
 #    - Returns the tokenized input IDs and the corresponding label for the given index.
-# 
-# You can refer to [this](https://pytorch.org/tutorials/beginner/basics/data_tutorial.html) tutorial on the Pytorch website for more details.
-# 
 
 # In[17]:
 
@@ -388,13 +337,6 @@ MAX_LENGTH = 128
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 
-
-# **NOTE ABOUT GPU USAGE**
-# 
-# The workspace provides you with access to a GPU which is necessary for training a transformer model due to the efficiency provided by GPUs on the large amount of computations that are required. To ensure judicious usage of limited resources, please usage the GPU only when you are training the model. 
-# 
-# ---
-# We will keep the maximum length of input to 128 tokens.
 
 # In[18]:
 
@@ -963,15 +905,7 @@ for epoch in range(EPOCHS):
 test_accuracy = calculate_accuracy(model, test_loader, device)
 print(f"Test Accuracy: {test_accuracy:.2f}%")
 
-
-# 
-# With the accuracy calculated, you can verify if the model meets the project goal of achieving greater than 75% accuracy on the test dataset. 
-# 
-# Try training your model for more than 3 epochs! Try increasing the size of the embedding used in the model. Or try increasing the number of blocks or layers in the model. You may be able to improve the accuracy of your model further!
-# 
-
-# ## Conclusion <a name="conclusion"></a>
-
+###################################
 
 
 
