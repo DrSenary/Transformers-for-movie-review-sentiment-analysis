@@ -33,7 +33,8 @@ Instructions:
 
 Clone the repository and follow instructions in the notebook.
 
-Download and extract the IMDB dataset.
+Download and extract the IMDB dataset. 
+Link to the IMDB Dataset: https://ai.stanford.edu/~amaas/data/sentiment/aclImdb_v1.tar.gz (
 
 Run the workflow to preprocess data, train the model, and evaluate accuracy.
 
